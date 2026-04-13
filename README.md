@@ -4,7 +4,7 @@
 O caso da Smart Gym propõe a evolução do treino digital. O objetivo deste projeto é desenvolver um protótipo de sistema de monitoramento inteligente para as *Smart Stations*. O sistema é capaz de replicar a atenção de um personal trainer através de duas etapas principais:
 
 1. **Identificação e Contexto (RFID):** Autenticação do aluno via cartão físico para carregamento de perfil, visando a personalização do treino.
-2. **Captura Biométrica (Visão Computacional):** Ativação da câmera após o login para monitorar a amplitude de movimento e postura do aluno em tempo real, utilizando mapeamento de articulações corporais (landmarks) para garantir a execução com técnica perfeita.
+2. **Captura Biométrica (Visão Computacional):** Ativação da câmera após a identificação do aluno para monitorar a amplitude de movimento e postura do aluno em tempo real, utilizando mapeamento de articulações corporais (landmarks) para garantir a execução com técnica perfeita.
 
 ## Equipe
 * Carlos Eduardo - RM: 556785
