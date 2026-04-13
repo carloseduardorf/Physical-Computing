@@ -13,10 +13,10 @@ O caso da Smart Gym propõe a evolução do treino digital. O objetivo deste pro
 * Giulia Rocha - RM: 558084
 
 ## Hardware e Componentes Utilizados
-* 1x Placa Microcontroladora (Arduino Uno ou ESP32)
+* 1x Placa Microcontroladora (Arduino Uno)
 * 1x Módulo Leitor RFID RC522
 * 1x Cartão/Tag RFID 13.56MHz
-* Jumpers variados para conexão via protocolo SPI
+* 7 jumpers macho-fêmea para realizar conexão via protocolo SPI
 * 1x Webcam (integrada ou USB) para o monitoramento
 
 ## Bibliotecas Utilizadas
