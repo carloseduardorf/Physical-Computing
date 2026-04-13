@@ -1,23 +1,23 @@
 # 🏋️‍♂️ Smart Gym - Ecossistema de Estações Inteligentes
 
-## 📖 Descrição do Projeto
+## Descrição do Projeto
 O caso da Smart Gym propõe a evolução do treino digital. O objetivo deste projeto é desenvolver um protótipo de sistema de monitoramento inteligente para as *Smart Stations*. O sistema é capaz de replicar a atenção de um personal trainer através de duas etapas principais:
 1. **Identificação e Contexto (RFID):** Autenticação do aluno via cartão físico para carregamento de perfil, visando a personalização do treino.
 2. **Captura Biométrica (Visão Computacional):** Ativação da câmera após o login para monitorar a amplitude de movimento e postura do aluno em tempo real, utilizando mapeamento de articulações corporais (landmarks) para garantir a execução com técnica perfeita.
 
-## 👥 Equipe
+## Equipe
 * [Nome do Participante 1] - [RM/Matrícula]
 * [Nome do Participante 2] - [RM/Matrícula]
 * [Nome do Participante 3] - [RM/Matrícula]
 
-## 🛠️ Hardware e Componentes Utilizados
+## Hardware e Componentes Utilizados
 * 1x Placa Microcontroladora (Arduino Uno ou ESP32)
 * 1x Módulo Leitor RFID RC522
 * 1x Cartão/Tag RFID 13.56MHz
 * Jumpers variados para conexão via protocolo SPI
 * 1x Webcam (integrada ou USB) para o monitoramento
 
-## 📚 Bibliotecas Utilizadas
+## Bibliotecas Utilizadas
 * **Arduino/C++:**
   * `SPI.h`: Para comunicação síncrona com o módulo leitor.
   * `MFRC522.h`: Para abstração dos comandos de leitura do protocolo da tag RFID.
@@ -26,7 +26,7 @@ O caso da Smart Gym propõe a evolução do treino digital. O objetivo deste pro
   * `opencv-python (cv2)`: Para manipulação de janelas, acesso à webcam e processamento de imagens.
   * `mediapipe`: Framework do Google utilizado para extrair as coordenadas das articulações (Pose Estimation).
 
-## 🚀 Instruções de Reprodução e Setup
+## Instruções de Reprodução e Setup
 
 ### 1. Configuração do Hardware (Arduino)
 1. Conecte o módulo RFID RC522 ao Arduino seguindo a pinagem do barramento SPI (MISO, MOSI, SCK, SDA/SS e RST).
