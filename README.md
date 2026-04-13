@@ -8,7 +8,7 @@ O caso da Smart Gym propõe a evolução do treino digital. O objetivo deste pro
 
 ## Equipe
 * Carlos Eduardo - RM: 556785
-* Gabriel Danius - RM: 555084
+* Gabriel Danius - RM: 555747
 * Caio Rossini - RM: 555084
 * Giulia Rocha - RM: 558084
 
