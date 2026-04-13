@@ -6,9 +6,10 @@ O caso da Smart Gym propõe a evolução do treino digital. O objetivo deste pro
 2. **Captura Biométrica (Visão Computacional):** Ativação da câmera após o login para monitorar a amplitude de movimento e postura do aluno em tempo real, utilizando mapeamento de articulações corporais (landmarks) para garantir a execução com técnica perfeita.
 
 ## Equipe
-* [Nome do Participante 1] - [RM/Matrícula]
-* [Nome do Participante 2] - [RM/Matrícula]
-* [Nome do Participante 3] - [RM/Matrícula]
+* Gabriel Danius - RM 556747
+* Carlos Eduardo - RM 556785
+* Caio Rossini - RM 555084
+* Giulia Rocha - RM 558084
 
 ## Hardware e Componentes Utilizados
 * 1x Placa Microcontroladora (Arduino Uno ou ESP32)
