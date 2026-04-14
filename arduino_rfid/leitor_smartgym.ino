@@ -34,6 +34,7 @@ void loop() {
   }
   
   content.toUpperCase();
+  Serial.print("UID:");
   
   // Envia o ID limpo via Serial para o Python ler
   Serial.println(content.substring(1));
