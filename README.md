@@ -47,3 +47,5 @@ O caso da Smart Gym propõe a evolução do treino digital. O objetivo deste pro
 <img width="616" height="480" alt="image" src="https://github.com/user-attachments/assets/c1095f81-abc4-4d49-8ae0-cdd640ab3bd4" />
 
 Imagem do projeto Wokwi (https://wokwi.com/projects/461231531669227521)
+
+[Link video demonstrativo](https://drive.google.com/file/d/1WIEtccEw9Mt0iQGq0snGRgkALArE9-nA/view?usp=sharing)
