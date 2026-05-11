@@ -108,7 +108,7 @@ Physical-Computing/
 
 ## 🔌 Diagrama de Conexões (Wokwi)
 
-**Link do projeto no Wokwi:** https://wokwi.com/projects/461231531669227521
+[Link do projeto no Wokwi:](https://wokwi.com/projects/461231531669227521)
 
 ### Pinagem RFID RC522 → Arduino Uno
 
