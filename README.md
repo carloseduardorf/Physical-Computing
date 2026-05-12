@@ -202,7 +202,7 @@ Python recebe o UID → consulta SQLite (tabela alunos)
 
 ## 🎥 Vídeo Demonstrativo
 
-> **[▶ Assistir ao vídeo demonstrativo](#)**  
+> **[▶ Assistir ao vídeo demonstrativo](https://drive.google.com/file/d/1cw_Tlrpd-OFaRGaFQTgoe8G0EGRkGjqQ/view?usp=sharing)**  
 > *(Substitua pelo link do Google Drive / YouTube após gravar)*
 
 ---
