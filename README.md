@@ -1,7 +1,7 @@
-# 🏋️‍♂️ Smart Gym — Ecossistema de Estações Inteligentes · CP02
+# 🏋️‍♂️ Smart Gym — Ecossistema de Estações Inteligentes · CP04
 
 > **FIAP — Engenharia de Software · Physical Computing (IoT & IoB)**  
-> Checkpoint 02 — Persistência de Dados & Interface Homem-Máquina (IHM)
+> Checkpoint 04 — Detecção de Equipamento (YOLO) + Reconhecimento de Movimento (MediaPipe)
 
 ---
 
@@ -13,6 +13,21 @@
 | Gabriel Danius | 555747 |
 | Caio Rossini | 555084 |
 | Giulia Rocha | 558084 |
+
+---
+
+## 🆕 CP04 — YOLO + MediaPipe
+
+O sistema agora **só conta repetições completas quando o equipamento está presente**:
+
+| Etapa | Tecnologia | O que faz |
+|-------|-----------|-----------|
+| Detecção do equipamento | **YOLOv8n (COCO)** | Detecta o **celular** (classe COCO `67 – cell phone`), usado como substituto do halter/barra/anilha. Desenha a *bounding box* e define o status. |
+| Reconhecimento do movimento | **MediaPipe Pose Landmarker** | Extrai o esqueleto e calcula o ângulo ombro–cotovelo–pulso do braço que segura o equipamento (o pulso mais próximo da caixa do YOLO). |
+| Validação da repetição | Máquina de estados | Conta apenas o ciclo completo **extensão (>150°) → flexão (<50°) → extensão (>150°)**. Se o equipamento sumir no meio do ciclo, ele é descartado. |
+| Interface | Tkinter + overlay OpenCV | Contador, fase, ângulo e status **"Equipamento Detectado" / "Aguardando Equipamento"**. |
+
+Parâmetros ajustáveis no topo de `python_vision/main.py`: `EQUIPAMENTO_CLASSES`, `YOLO_CONFIANCA`, `ANGULO_EXTENSAO`, `ANGULO_FLEXAO`, `EQUIPAMENTO_TOLERANCIA_S`.
 
 ---
 
@@ -34,7 +49,9 @@ Physical-Computing/
 │   └── smart_gym_rfid.ino      # Firmware Arduino (RFID RC522 + LED + Buzzer)
 ├── python_vision/
 │   ├── setup_db.py             # Cria banco e insere alunos de exemplo
-│   ├── main.py                 # Sistema principal (Tkinter + MediaPipe + SQLite)
+│   ├── main.py                 # Sistema principal (Tkinter + YOLO + MediaPipe + SQLite)
+│   ├── pose_landmarker_full.task # Modelo MediaPipe Pose
+│   ├── requirements.txt
 │   └── smart_gym.db            # Banco SQLite gerado após rodar setup_db.py
 ├── docs/
 │   └── wokwi_diagram.png       # Screenshot do circuito no Wokwi
@@ -100,6 +117,7 @@ Physical-Computing/
 | `pyserial` | Comunicação serial Arduino ↔ PC |
 | `opencv-python (cv2)` | Captura e processamento de vídeo |
 | `mediapipe` | Pose Estimation (esqueleto corporal) |
+| `ultralytics` | YOLOv8 — detecção do equipamento (COCO) |
 | `Pillow (PIL)` | Renderização de frames no canvas Tkinter |
 | `sqlite3` | Banco de dados (nativo Python) |
 | `tkinter` | Interface gráfica (nativo Python) |
@@ -152,7 +170,7 @@ git clone https://github.com/carloseduardorf/Physical-Computing.git
 cd Physical-Computing/python_vision
 
 # Instale dependências
-pip install pyserial opencv-python mediapipe pillow
+pip install -r requirements.txt
 ```
 
 ### 3. Banco de Dados — Primeira execução
@@ -176,6 +194,8 @@ python main.py
 ```
 
 > **Sem hardware?** Pressione **F5** para simular uma leitura de cartão cadastrado, ou **F6** para simular UID inválido.
+>
+> Na primeira execução o `ultralytics` baixa automaticamente o peso `yolov8n.pt` (~6 MB).
 
 ---
 
@@ -190,8 +210,9 @@ Python recebe o UID → consulta SQLite (tabela alunos)
         ↓
 [Encontrado] ─→ Tkinter exibe boas-vindas + exercício
               → Arduino recebe "OK" → LED verde + beep
-              → Câmera ativa → MediaPipe detecta esqueleto
-              → Contador de repetições em tempo real
+              → Câmera ativa → YOLO procura o equipamento (celular)
+              → MediaPipe detecta esqueleto e ângulo do cotovelo
+              → Conta só ciclos completos com equipamento presente
               → Ao encerrar: registra saída + reps no SQLite (tabela sessoes)
         ↓
 [Não encontrado] → Arduino recebe "DENY" → LED vermelho + beep longo
